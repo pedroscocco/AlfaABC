@@ -74,51 +74,6 @@ function getSource (source, resultNow){
     return s;
 }
 
-function getCorrectLetter(){
-      return correctLetter;
-}
-
-function setAnswer(positionY){
-    answer=positionY;
-}
-
-function getAnswer(){
-   return answer;
-}
-
-function start(){
-    letterCenter=null;
-    answer=null;
-    collision=false;
-    result=0;
-    tries=0;
-    numberOfActivities=0;
-    change=0;
-    clearLetters = false
-}
-
-
-
-function getResult(){
-    return result;
-}
-
-function setAtividadeItem(tempAtividadeItem) {
-    atividadeItem = tempAtividadeItem;
-}
-
-function getClearLetters() {
-    return clearLetters;
-}
-
-function setClearLetters(clear) {
-    clearLetters = clear;
-}
-
-
-function setLife(){
-    atividadeItem.setLife(3-tries);
-}
 
 
 var previousNumber1;
@@ -133,6 +88,7 @@ var positionResult;
 var positionWrong1;
 var positionWrong2;
 var positionWrong3;
+var tries;
 
 
 function init(){
@@ -144,6 +100,11 @@ function init(){
     wrong1=0;
     wrong2=0;
     wrong3=0;
+    positionResult=0;
+    positionWrong1=0;
+    positionWrong2=0;
+    positionWrong3=0;
+    tries=0;
 
 }
 
@@ -164,13 +125,22 @@ function sortChallenge(){
     previousNumber2=number2;
 }
 
-function sorPosition(){
-
+function sortPosition(){
+    do{
+        positionResult=random(4);
+        positionWrong1=random(4);
+        positionWrong2=random(4);
+        positionWrong3=random(4);
+     }while ((positionResult===positionWrong1) & (positionResult===positionWrong3) & (positionResult===positionWrong2) & (positionWrong1===positionWrong2) & (positionWrong1===positionWrong3) & (positionWrong3===positionWrong2))
 }
 
 function random(numPossibilidades){
     var aleat = Math.random() * numPossibilidades;
     aleat = Math.floor(aleat);
     return aleat;
+}
+
+function incrementTries(){
+    tries++;
 }
 
