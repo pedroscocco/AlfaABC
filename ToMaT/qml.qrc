@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>main.cpp</file>
         <file>images/stock-photo-illustration-of-a-boy-sleeping-soundly-inside-his-room-133435442.jpg</file>
         <file>content/Jogo.qml</file>
         <file>content/mylogic.js</file>

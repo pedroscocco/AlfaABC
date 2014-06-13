@@ -11,7 +11,8 @@ Window {
     visible: true
     width: Screen.desktopAvailableWidth
     height: Screen.desktopAvailableHeight
-
+    minimumHeight: 480
+    minimumWidth: 640
 
     // Exemplo pra chamar quarto
     Jogo {
@@ -20,7 +21,6 @@ Window {
         visible: false
         onVisibleChanged: visibilidadeJogo()
     }
-
 
     function visibilidadeJogo() {
        if (jogo.visible) {
@@ -34,5 +34,8 @@ Window {
        }
     }
 
-
+    MouseArea {
+        anchors.fill:parent
+        onClicked: jogo.visible = true
+    }
 }

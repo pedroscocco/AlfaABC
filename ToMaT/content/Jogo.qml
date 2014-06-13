@@ -1,20 +1,14 @@
 import QtQuick 2.1
 import QtMultimedia 5.0
-import "resources"
+import QtQuick.Layouts 1.1
+import QtQuick.Window 2.1
+import "../images"
 import "mylogic.js" as Logic
 
 Item {
     id: quarto
     visible: true
     focus: true
-
-    function mostrarPopup() {
-        return Logic.mostrarPopup(airplane.source+"", ball.source+"", chair.source+"", dice.source+"")
-    }
-
-    function change() {
-        backgroundQuarto.source = "resources/BackgroundRoom2.jpg"
-    }
 
     Rectangle {
         id: telaLetras
@@ -27,102 +21,86 @@ Item {
         Image {
             id: backgroundQuarto
             anchors.fill: parent
-            source: "resources/BackgroundRoom.jpg"
+            source: "../images/stock-photo-illustration-of-a-boy-sleeping-soundly-inside-his-room-133435442.jpg"
         }
 
-        Image {
-            id: airplane
-            source: "resources/AirplaneToRoom.png"
-            anchors.top: parent.top
-            anchors.right: parent.right
-            MouseArea {
-                anchors.fill: parent
-                onPressed: {
-                    if(quarto.focus) {
-                        airplane.source = "resources/AirplaneToRoomClicked.png"
-                        letra.letra = "A"
-                        letra.imagem = "resources/LetterA.jpg"
-                        letra.visible = true
-                        buttonClick.play()
-                    }
-                }
-            }
-        }
-
-        Image {
-            id: ball
-            source: "resources/BallToRoom.png"
-            anchors.bottom: parent.bottom
-            anchors.right: parent.right
-            MouseArea {
-                anchors.fill: parent
-                onPressed: {
-                    if(quarto.focus) {
-                        parent.source = "resources/BallToRoomClicked.png"
-                        letra.letra = "B"
-                        letra.imagem = "resources/LetterB.jpg"
-                        letra.visible = true
-                        buttonClick.play()
-                    }
-                }
-            }
-        }
-
-        Image {
-            id: chair
-            source: "resources/ChairToRoom.png"
-            anchors.bottom: parent.bottom
+        Rectangle {
+            id: supE
             anchors.left: parent.left
-            MouseArea {
-                anchors.fill: parent
-                onPressed: {
-                    if(quarto.focus) {
-                        parent.source = "resources/ChairToRoomClicked.png"
-                        letra.letra = "C"
-                        letra.imagem = "resources/LetterC.jpg"
-                        letra.visible = true
-                        buttonClick.play()
-                    }
-                }
-            }
-        }
-
-        Image {
-            id: dice
-            source: "resources/DiceToRoom.png"
             anchors.top: parent.top
+            height: parent.height/2
+            width: parent.width/2
+            color: "black"
+        }
+
+        Rectangle {
+            id: supD
+            anchors.right: parent.right
+            anchors.top: parent.top
+            height: parent.height/2
+            width: parent.width/2
+            color: "red"
+        }
+
+        Rectangle {
+            id: infE
             anchors.left: parent.left
-            MouseArea {
-                anchors.fill: parent
-                onPressed: {
-                    if(quarto.focus) {
-                        parent.source = "resources/DiceToRoomClicked.png"
-                        letra.letra = "D"
-                        letra.imagem = "resources/LetterD.jpg"
-                        letra.visible = true
-                        buttonClick.play()
-                    }
-                }
+            anchors.bottom: parent.bottom
+            height: parent.height/2
+            width: parent.width/2
+            color: "blue"
+            Rectangle {
+
             }
         }
 
-        Image {
-            source: "resources/Quit.png"
+        Rectangle {
+            id: infD
             anchors.right: parent.right
             anchors.bottom: parent.bottom
-            anchors.margins: 10
-            // Para voltar ao Menu Inicial
-            MouseArea {
+            height: parent.height/2
+            width: parent.width/2
+            color: "black"
+        }
+
+        Rectangle {
+            id: desafio
+            anchors.centerIn: parent
+            height: parent.height/3
+            width: parent.width/3
+            color: "white"
+            Item {
                 anchors.fill: parent
-                onPressed: {
-                    if(quarto.focus) {
-                        quarto.visible = false;
-                        buttonClick.play()
+                anchors.margins: 10
+
+                Rectangle {
+                    id: n1
+                    anchors.left: parent.left
+                    height: parent.height
+                    width: parent.width*0.4
+                    color: "purple"
+                }
+                Rectangle {
+                    anchors.centerIn: parent
+                    height: parent.height
+                    width: parent.width*0.2
+                    color: "transparent"
+                    Text {
+                        id: mais
+                        anchors.centerIn: parent
+                        text: "+"
+                        font.bold: true
+                        font.pointSize: 98*(window.width/Screen.desktopAvailableWidth)
                     }
+                }
+                Rectangle {
+                    id: n2
+                    anchors.right: parent.right
+                    height: parent.height
+                    width: parent.width*0.4
+                    color: "yellow"
                 }
             }
         }
-
     }
-
 }
