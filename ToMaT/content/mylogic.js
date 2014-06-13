@@ -120,3 +120,57 @@ function setLife(){
     atividadeItem.setLife(3-tries);
 }
 
+
+var previousNumber1;
+var previousNumber2;
+var result;
+var number1;
+var number2;
+var wrong1;
+var wrong2;
+var wrong3;
+var positionResult;
+var positionWrong1;
+var positionWrong2;
+var positionWrong3;
+
+
+function init(){
+    previousNumber1=0;
+    previousNumber2=0;
+    result=0;
+    number1=0;
+    number2=0;
+    wrong1=0;
+    wrong2=0;
+    wrong3=0;
+
+}
+
+function sortChallenge(){
+    do{
+       number1 = random(9);
+       result = random(9);
+       number2= result-number1;
+    } while ((number1<=result) & (number1===previousNumber1) & (number2===previousNumber2))
+
+   do{
+        wrong1 = random(9);
+        wrong2 = random(9);
+        wrong3 = random(9);
+    }while ((wrong1===wrong2) & (wrong1===wrong3) & (wrong3===wrong2) & (wrong1===result) & (wrong2===result) & (wrong3===result))
+
+    previousNumber1=number1;
+    previousNumber2=number2;
+}
+
+function sorPosition(){
+
+}
+
+function random(numPossibilidades){
+    var aleat = Math.random() * numPossibilidades;
+    aleat = Math.floor(aleat);
+    return aleat;
+}
+
