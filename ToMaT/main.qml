@@ -1,20 +1,38 @@
-import QtQuick 2.2
+import QtQuick 2.1
 import QtQuick.Window 2.1
+import QtQuick.Layouts 1.1
+import QtMultimedia 5.0
+import "content/mylogic.js" as Logic
+import "content"
+
 
 Window {
+    id: window
     visible: true
-    width: 360
-    height: 360
+    width: Screen.desktopAvailableWidth
+    height: Screen.desktopAvailableHeight
 
-    MouseArea {
+
+    // Exemplo pra chamar quarto
+    Jogo {
+        id: jogo
         anchors.fill: parent
-        onClicked: {
-            Qt.quit();
-        }
+        visible: false
+        onVisibleChanged: visibilidadeJogo()
     }
 
-    Text {
-        text: qsTr("Hello World")
-        anchors.centerIn: parent
+
+    function visibilidadeJogo() {
+       if (jogo.visible) {
+
+           atividade.state = "INICIADO"
+
+       }
+       else {
+
+           atividade.state = "PARADO"
+       }
     }
+
+
 }
