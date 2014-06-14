@@ -61,6 +61,7 @@ Item {
             width: parent.width/2
             color: "red"
             Rectangle {
+                id: supDOp
                 anchors.centerIn: parent
                 width:10; height: 10
                 Text {

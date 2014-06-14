@@ -20,7 +20,9 @@ Window {
         anchors.fill: parent
         visible: false
         onVisibleChanged: visibilidadeJogo()
+
     }
+
 
     function visibilidadeJogo() {
        if (jogo.visible) {
