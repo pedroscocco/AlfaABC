@@ -25,17 +25,20 @@ Window {
     function visibilidadeJogo() {
        if (jogo.visible) {
 
-           atividade.state = "INICIADO"
+            jogo.state = "INICIADO"
 
        }
        else {
 
-           atividade.state = "PARADO"
+           jogo.state = "PARADO"
        }
     }
 
     MouseArea {
         anchors.fill:parent
-        onClicked: jogo.visible = true
+        onClicked: {
+            enabled = false
+            jogo.visible = true
+        }
     }
 }

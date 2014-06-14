@@ -31,6 +31,26 @@ Item {
             height: parent.height/2
             width: parent.width/2
             color: "black"
+
+            Rectangle {
+                anchors.centerIn: parent
+                width:10; height: 10
+                Text {
+                    id: supEText
+                    text: ""
+                }
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                onPressed: {
+                    supE.color = "pink"
+                }
+                onReleased: {
+                    supE.color = "black"
+                }
+
+            }
         }
 
         Rectangle {
@@ -40,6 +60,25 @@ Item {
             height: parent.height/2
             width: parent.width/2
             color: "red"
+            Rectangle {
+                anchors.centerIn: parent
+                width:10; height: 10
+                Text {
+                    id: supDText
+                    text: ""
+                }
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                onPressed: {
+                    supD.color = "pink"
+                }
+                onReleased: {
+                    supD.color = "black"
+                }
+
+            }
         }
 
         Rectangle {
@@ -50,6 +89,22 @@ Item {
             width: parent.width/2
             color: "blue"
             Rectangle {
+                anchors.centerIn: parent
+                width:10; height: 10
+                Text {
+                    id: infEText
+                    text: ""
+                }
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                onPressed: {
+                    infE.color = "pink"
+                }
+                onReleased: {
+                    infE.color = "black"
+                }
 
             }
         }
@@ -61,6 +116,25 @@ Item {
             height: parent.height/2
             width: parent.width/2
             color: "black"
+            Rectangle {
+                anchors.centerIn: parent
+                width:10; height: 10
+                Text {
+                    id: infDText
+                    text: ""
+                }
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                onPressed: {
+                    infD.color = "pink"
+                }
+                onReleased: {
+                    infD.color = "black"
+                }
+
+            }
         }
 
         Rectangle {
@@ -101,6 +175,7 @@ Item {
                     color: "yellow"
                 }
             }
+
         }
     }
 }
