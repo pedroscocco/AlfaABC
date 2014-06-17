@@ -20,10 +20,12 @@ Window {
         anchors.fill: parent
         visible: false
         onVisibleChanged: visibilidadeJogo()
+
         Component.onCompleted: {
             jogo.init()
             jogo.sortChallenge()
             jogo.sortPosition()
+
     }
 
 
