@@ -4,25 +4,25 @@ ListModel{
     id: imageModel
     ListElement {
 
-        source:""
+        image_source:""
 
 
     }
     ListElement {
 
-        source:""
+        image_source:""
 
 
     }
     ListElement {
 
-        source:""
+        image_source:""
 
 
     }
     ListElement {
 
-        source:""
+        image_source:""
 
 
     }

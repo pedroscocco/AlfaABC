@@ -44,7 +44,7 @@ Item {
 
         }
 
-        Rectangle {
+        /*Rectangle {
             id: supE
             anchors.left: parent.left
             anchors.top: parent.top
@@ -155,6 +155,30 @@ Item {
             }
         }
 
+        */
+
+        GridView {
+            id: gridView
+            anchors.fill: parent
+            cellHeight: telaLetras.height/2
+            cellWidth: telaLetras.width/2
+            model: imageModel
+            highlight: Rectangle {
+                    color: "lightblue"
+                    width: parent.width
+                    height: parent.height
+            }
+            delegate: Image{
+                        source: image_source
+                        fillMode: Image.PreserveAspectFit
+                        height: gridView.cellHeight
+                        width: gridView.cellWidth
+                        //anchors.fill: parent
+                        //anchors.leftMargin: 200
+                        //anchors.topMargin: 30
+                    }
+
+        }
 
         Rectangle {
 
@@ -169,17 +193,6 @@ Item {
                 anchors.fill:parent
                 anchors.centerIn: parent
                 source: "../images/personagem.png"
-            }
-
-            MouseArea {
-                anchors.fill: parent
-                onPressed: {
-                    infD.color = "pink"
-                }
-                onReleased: {
-                    infD.color = "black"
-                }
-
             }
         }
 
@@ -331,16 +344,16 @@ Item {
          }while ((positionResult===positionWrong1) | (positionResult===positionWrong3) | (positionResult===positionWrong2) | (positionWrong1===positionWrong2) |(positionWrong1===positionWrong3) | (positionWrong3===positionWrong2))
 
 
-        imageModel.set(positionResult-1,{ "source":folder+result+".png"})
-        imageModel.set(positionWrong1-1,{ "source":folder+wrong1+".png"})
-        imageModel.set(positionWrong2-1,{ "source":folder+wrong2+".png"})
-        imageModel.set(positionWrong3-1,{ "source":folder+wrong3+".png"})
+        imageModel.set(positionResult-1,{ "image_source":folder+result+".png"})
+        imageModel.set(positionWrong1-1,{ "image_source":folder+wrong1+".png"})
+        imageModel.set(positionWrong2-1,{ "image_source":folder+wrong2+".png"})
+        imageModel.set(positionWrong3-1,{ "image_source":folder+wrong3+".png"})
 
 
-         p1.source=imageModel.get(0).source
-         p2.source=imageModel.get(1).source
-         p3.source=imageModel.get(2).source
-         p4.source=imageModel.get(3).source
+         //p1.source=imageModel.get(0).source
+         //p2.source=imageModel.get(1).source
+         //p3.source=imageModel.get(2).source
+         //p4.source=imageModel.get(3).source
 
     }
 
