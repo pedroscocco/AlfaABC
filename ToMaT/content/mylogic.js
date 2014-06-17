@@ -26,4 +26,7 @@ function next(){
     pos = (pos + 1)%4;
     return pos;
 }
+function restart() {
+    pos = 0;
+}
 

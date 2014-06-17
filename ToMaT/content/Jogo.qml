@@ -163,7 +163,7 @@ Item {
                 height: telaLetras.height/2
                 width: telaLetras.width/2
                 color: "transparent"
-                border.color: "red"
+                border.color: "blue"
                 border.width: 20
                 opacity: 0.6
             }
@@ -179,11 +179,17 @@ Item {
             highlight: highlightBar
             //highlightFollowsCurrentItem: true
             currentIndex: 0
-            delegate: Rectangle {
+            delegate: Item {
                 property int number: value
                 height: gridView.cellHeight
                 width: gridView.cellWidth
-                color: "transparent"
+
+                Rectangle {
+                    anchors.fill: parent
+                    color: rect_color
+                    opacity: 0.3
+                }
+
                 Image{
                     source: image_source
                     fillMode: Image.PreserveAspectFit
@@ -195,6 +201,7 @@ Item {
             }
 
             Timer {
+                id: timer
                 interval: 1000; running: true; repeat: true
                 onTriggered: {
                     gridView.currentIndex = Logic.next();
@@ -206,10 +213,10 @@ Item {
                 onClicked: {
                     if(gridView.currentItem.number === n1.number + n2.number) {
                         print("HURRAY!");
+                        toNextActivity();
                     }
                     else {
-                        gridView.currentItem.color = "red"
-                        gridView.currentItem.opacity = 0.3
+                        imageModel.get(gridView.currentIndex).rect_color = "red"
                     }
                 }
             }
@@ -383,10 +390,10 @@ Item {
          }while ((positionResult===positionWrong1) | (positionResult===positionWrong3) | (positionResult===positionWrong2) | (positionWrong1===positionWrong2) |(positionWrong1===positionWrong3) | (positionWrong3===positionWrong2))
 
 
-        imageModel.set(positionResult-1,{ "image_source":folder+result+".png", "value":result})
-        imageModel.set(positionWrong1-1,{ "image_source":folder+wrong1+".png", "value":wrong1})
-        imageModel.set(positionWrong2-1,{ "image_source":folder+wrong2+".png", "value":wrong2})
-        imageModel.set(positionWrong3-1,{ "image_source":folder+wrong3+".png", "value":wrong3})
+        imageModel.set(positionResult-1,{ "image_source":folder+result+".png", "value":result, "rect_color":"transparent"})
+        imageModel.set(positionWrong1-1,{ "image_source":folder+wrong1+".png", "value":wrong1, "rect_color":"transparent"})
+        imageModel.set(positionWrong2-1,{ "image_source":folder+wrong2+".png", "value":wrong2, "rect_color":"transparent"})
+        imageModel.set(positionWrong3-1,{ "image_source":folder+wrong3+".png", "value":wrong3, "rect_color":"transparent"})
 
 
          //p1.source=imageModel.get(0).source
@@ -409,9 +416,12 @@ Item {
 
     function toNextActivity(){
        nextActivity = actualActivity++;
-       folder="../images/Atividades/"+nextActivity+"/"
+       folder="../images/Atividades/"+1+"/"
        sortChallenge(folder)
        sortPosition(folder)
+       gridView.currentIndex = 0
+       Logic.restart()
+       timer.restart()
        backgroundJogo.source= folder+ "background.jpg"
     }
 

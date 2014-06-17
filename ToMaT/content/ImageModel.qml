@@ -6,6 +6,7 @@ ListModel{
 
         image_source:""
         value: 0
+        rect_color:"transparent"
 
 
     }
@@ -13,18 +14,21 @@ ListModel{
 
         image_source:""
         value: 0
+        rect_color:"transparent"
 
     }
     ListElement {
 
         image_source:""
         value: 0
+        rect_color:"transparent"
 
     }
     ListElement {
 
         image_source:""
         value: 0
+        rect_color:"transparent"
 
     }
 }
