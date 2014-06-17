@@ -157,27 +157,48 @@ Item {
 
         */
 
+        Component {
+            id: highlightBar
+            Rectangle {
+                height: telaLetras.height/2
+                width: telaLetras.width/2
+                color: "blue"
+                opacity: 0.3
+            }
+        }
+
         GridView {
             id: gridView
             anchors.fill: parent
             cellHeight: telaLetras.height/2
             cellWidth: telaLetras.width/2
             model: imageModel
-            highlight: Rectangle {
-                    color: "lightblue"
-                    width: parent.width
-                    height: parent.height
-            }
-            delegate: Image{
+
+            highlight: highlightBar
+            //highlightFollowsCurrentItem: true
+            currentIndex: 0
+            delegate: Rectangle {
+                height: gridView.cellHeight
+                width: gridView.cellWidth
+                color: "transparent"
+                Image{
                         source: image_source
                         fillMode: Image.PreserveAspectFit
-                        height: gridView.cellHeight
-                        width: gridView.cellWidth
-                        //anchors.fill: parent
+                        anchors.fill: parent
                         //anchors.leftMargin: 200
-                        //anchors.topMargin: 30
-                    }
+                        anchors.topMargin: 30
+                        anchors.bottomMargin:  30
+                 }
+            }
 
+            Timer {
+                interval: 1000; running: true; repeat: true
+                onTriggered: {
+                    var next = Logic.next();
+                    print(next)
+                    gridView.currentIndex = next;
+                }
+            }
         }
 
         Rectangle {

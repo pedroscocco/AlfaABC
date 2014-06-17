@@ -13,11 +13,17 @@ var clearLetters;
 var actualActivity;
 var nextActivity;
 var folder;
+var pos;
 function nextActivity(){
     var nextActivity = actualActivity++;
     folder="../images/Atividades/"+folder+"/";
 
 
 }
-
+function next(){
+    if(pos === undefined)
+        pos = 0;
+    pos = (pos + 1)%4;
+    return pos;
+}
 
