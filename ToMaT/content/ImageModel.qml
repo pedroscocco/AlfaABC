@@ -1,9 +1,29 @@
 import QtQuick 2.0
 
 ListModel{
-    id: messageModel
+    id: imageModel
     ListElement {
-        idMessage:0
+
+        source:""
+
+
+    }
+    ListElement {
+
+        source:""
+
+
+    }
+    ListElement {
+
+        source:""
+
+
+    }
+    ListElement {
+
+        source:""
+
 
     }
 }

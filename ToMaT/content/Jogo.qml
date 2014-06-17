@@ -25,6 +25,9 @@ Item {
     property var positionWrong2;
     property var positionWrong3;
     property var tries;
+    property var nextActivity ;
+    property var actualActivity ;
+     property var folder ;
 
     Rectangle {
         id: telaLetras
@@ -35,9 +38,10 @@ Item {
         property int letrasVistas: 0
 
         Image {
-            id: backgroundQuarto
+            id: backgroundJogo
+            fillMode: Image.PreserveAspectCrop
             anchors.fill: parent
-            source: "../images/stock-photo-illustration-of-a-boy-sleeping-soundly-inside-his-room-133435442.jpg"
+
         }
 
         Rectangle {
@@ -46,10 +50,16 @@ Item {
             anchors.top: parent.top
             height: parent.height/2
             width: parent.width/2
-            color: "black"
+            color: "transparent"
 
             Image{
                 id:p1
+                fillMode: Image.PreserveAspectFit
+                anchors.fill:parent
+                anchors.rightMargin: 200
+                anchors.bottomMargin: 30
+
+
             }
 
             MouseArea {
@@ -70,9 +80,13 @@ Item {
             anchors.top: parent.top
             height: parent.height/2
             width: parent.width/2
-            color: "red"
+            color: "transparent"
             Image{
                 id:p2
+                fillMode: Image.PreserveAspectFit
+                anchors.fill:parent
+                anchors.leftMargin: 200
+                anchors.bottomMargin: 30
             }
 
             MouseArea {
@@ -93,9 +107,13 @@ Item {
             anchors.bottom: parent.bottom
             height: parent.height/2
             width: parent.width/2
-            color: "blue"
+              color: "transparent"
             Image{
                 id:p3
+                fillMode: Image.PreserveAspectFit
+                anchors.fill:parent
+                anchors.rightMargin: 200
+                anchors.topMargin: 30
             }
 
             MouseArea {
@@ -116,9 +134,41 @@ Item {
             anchors.bottom: parent.bottom
             height: parent.height/2
             width: parent.width/2
-            color: "black"
+              color: "transparent"
             Image{
                 id:p4
+                fillMode: Image.PreserveAspectFit
+                anchors.fill:parent
+                anchors.leftMargin: 200
+                anchors.topMargin: 30
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                onPressed: {
+                    infD.color = "pink"
+                }
+                onReleased: {
+                    infD.color = "black"
+                }
+
+            }
+        }
+
+
+        Rectangle {
+
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.bottom: parent.bottom
+            height: parent.height/2
+            width: parent.width*0.4
+            color: "transparent"
+            Image{
+                id: personagem
+                fillMode: Image.PreserveAspectFit
+                anchors.fill:parent
+                anchors.centerIn: parent
+                source: "../images/personagem.png"
             }
 
             MouseArea {
@@ -135,10 +185,18 @@ Item {
 
         Rectangle {
             id: desafio
-            anchors.centerIn: parent
-            height: parent.height/3
-            width: parent.width/3
-            color: "white"
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.bottom: parent.verticalCenter
+            anchors.bottomMargin: 0
+            height: parent.height*0.4
+            width: parent.width*0.4
+            gradient: Gradient {
+                     GradientStop { position: 0.0; color: "white" }
+                     GradientStop { position: 1.0; color: "#d7d7d7" }
+                 }
+            radius: 500
+            border.color: "#b7b7b7"
+            border.width: 1
             Item {
                 anchors.fill: parent
                 anchors.margins: 10
@@ -147,8 +205,8 @@ Item {
 
                     anchors.left: parent.left
                     height: parent.height
-                    width: parent.width*0.4
-                    color: "purple"
+                    width: parent.width*0.35
+                     color: "transparent"
                     Image{
                         fillMode: Image.PreserveAspectFit
                         id: n1
@@ -157,27 +215,59 @@ Item {
 
                 }
                 Rectangle {
-                    anchors.centerIn: parent
+                     anchors.left: parent.left
+                    anchors.leftMargin: parent.width*0.35
                     height: parent.height
-                    width: parent.width*0.2
+                    width: parent.width*0.1
                     color: "transparent"
                     Text {
                         id: mais
                         anchors.centerIn: parent
                         text: "+"
                         font.bold: true
-                        font.pointSize: 98*(window.width/Screen.desktopAvailableWidth)
+                        font.pointSize: 50*(window.width/Screen.desktopAvailableWidth)
                     }
                 }
                 Rectangle {
-                    anchors.right: parent.right
+                     anchors.left: parent.left
+                    anchors.leftMargin: parent.width*0.45
                     height: parent.height
-                    width: parent.width*0.4
+                    width: parent.width*0.35
+                     color: "transparent"
                     Image{
                         anchors.fill:parent
                         fillMode: Image.PreserveAspectFit
                         id: n2
                      }
+                }
+                Rectangle {
+                    anchors.left: parent.left
+                    anchors.leftMargin: (parent.width*0.8)
+                    height: parent.height
+                    width: parent.width*0.1
+                    color: "transparent"
+                    Text {
+                        id: igual
+                        anchors.centerIn: parent
+                        text: "="
+                        font.bold: true
+                        font.pointSize: 50*(window.width/Screen.desktopAvailableWidth)
+                    }
+                }
+
+                Rectangle {
+                    anchors.left: parent.left
+                    anchors.leftMargin: (parent.width*0.9)
+                    height: parent.height
+                    width: parent.width*0.1
+                    color: "transparent"
+                    Text {
+                        id: interrogacao
+                        anchors.centerIn: parent
+                        text: "?"
+                        font.bold: true
+                        font.pointSize: 50*(window.width/Screen.desktopAvailableWidth)
+                    }
                 }
             }
 
@@ -199,10 +289,16 @@ Item {
         positionWrong2=0;
         positionWrong3=0;
         tries=0;
+        actualActivity=0;
+        nextActivity=0;
+        folder="../images/Atividades/"+1+"/";
+        sortChallenge(folder)
+        sortPosition(folder)
+        backgroundJogo.source= folder+ "background.jpg"
 
     }
 
-    function sortChallenge(){
+    function sortChallenge(folder){
         do{
            number1 = random(9);
            result = random(9);
@@ -221,12 +317,12 @@ Item {
        console.log(number1)
        console.log(number2)
 
-        n1.source="../images/Bola/"+number1+".png"
-        n2.source="../images/Bola/"+number2+".png"
+        n1.source=folder+number1+".png"
+        n2.source=folder+number2+".png"
 
     }
 
-    function sortPosition(){
+    function sortPosition(folder){
         do{
             positionResult=random(4);
             positionWrong1=random(4);
@@ -234,10 +330,17 @@ Item {
             positionWrong3=random(4);
          }while ((positionResult===positionWrong1) | (positionResult===positionWrong3) | (positionResult===positionWrong2) | (positionWrong1===positionWrong2) |(positionWrong1===positionWrong3) | (positionWrong3===positionWrong2))
 
-         p1.source="../images/Bola/"+positionResult+".png"
-         p2.source="../images/Bola/"+positionWrong1+".png"
-         p3.source="../images/Bola/"+positionWrong2+".png"
-         p4.source="../images/Bola/"+positionWrong3+".png"
+
+        imageModel.set(positionResult-1,{ "source":folder+result+".png"})
+        imageModel.set(positionWrong1-1,{ "source":folder+wrong1+".png"})
+        imageModel.set(positionWrong2-1,{ "source":folder+wrong2+".png"})
+        imageModel.set(positionWrong3-1,{ "source":folder+wrong3+".png"})
+
+
+         p1.source=imageModel.get(0).source
+         p2.source=imageModel.get(1).source
+         p3.source=imageModel.get(2).source
+         p4.source=imageModel.get(3).source
 
     }
 
@@ -247,12 +350,17 @@ Item {
         return aleat+1;
     }
 
-    function incrementTries(){
-        tries++;
-    }
 
     function calcFeedback(){
 
+    }
+
+    function toNextActivity(){
+       nextActivity = actualActivity++;
+       folder="../images/Atividades/"+nextActivity+"/"
+       sortChallenge(folder)
+       sortPosition(folder)
+       backgroundJogo.source= folder+ "background.jpg"
     }
 
 

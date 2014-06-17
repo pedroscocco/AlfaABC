@@ -14,19 +14,24 @@ Window {
     minimumHeight: 480
     minimumWidth: 640
 
+
+
     // Exemplo pra chamar quarto
     Jogo {
         id: jogo
         anchors.fill: parent
-        visible: false
+        visible: true
         onVisibleChanged: visibilidadeJogo()
 
         Component.onCompleted: {
             jogo.init()
-            jogo.sortChallenge()
-            jogo.sortPosition()
+
 
     }
+
+    ImageModel{
+        id:imageModel
+     }
 
 
     function visibilidadeJogo() {
@@ -48,4 +53,7 @@ Window {
             jogo.visible = true
         }
     }
+}
+
+
 }

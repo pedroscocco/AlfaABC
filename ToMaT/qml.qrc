@@ -1,17 +1,19 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
-        <file>images/stock-photo-illustration-of-a-boy-sleeping-soundly-inside-his-room-133435442.jpg</file>
         <file>content/Jogo.qml</file>
         <file>content/mylogic.js</file>
         <file>content/ImageModel.qml</file>
-        <file>images/Bola/1.png</file>
-        <file>images/Bola/2.png</file>
-        <file>images/Bola/3.png</file>
-        <file>images/Bola/4.png</file>
-        <file>images/Bola/5.png</file>
-        <file>images/Bola/6.png</file>
-        <file>images/Bola/7.png</file>
-        <file>images/Bola/8.png</file>
+        <file>images/Atividades/1/1.png</file>
+        <file>images/Atividades/1/2.png</file>
+        <file>images/Atividades/1/3.png</file>
+        <file>images/Atividades/1/4.png</file>
+        <file>images/Atividades/1/5.png</file>
+        <file>images/Atividades/1/6.png</file>
+        <file>images/Atividades/1/7.png</file>
+        <file>images/Atividades/1/8.png</file>
+        <file>images/Atividades/1/background.jpg</file>
+        <file>images/Atividades/2/background.jpg</file>
+        <file>images/personagem.png</file>
     </qresource>
 </RCC>
