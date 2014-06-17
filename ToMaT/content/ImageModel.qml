@@ -5,25 +5,26 @@ ListModel{
     ListElement {
 
         image_source:""
+        value: 0
 
 
     }
     ListElement {
 
         image_source:""
-
-
-    }
-    ListElement {
-
-        image_source:""
-
+        value: 0
 
     }
     ListElement {
 
         image_source:""
+        value: 0
 
+    }
+    ListElement {
+
+        image_source:""
+        value: 0
 
     }
 }

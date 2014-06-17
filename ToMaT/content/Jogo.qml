@@ -178,25 +178,37 @@ Item {
             //highlightFollowsCurrentItem: true
             currentIndex: 0
             delegate: Rectangle {
+                property int number: value
                 height: gridView.cellHeight
                 width: gridView.cellWidth
                 color: "transparent"
                 Image{
-                        source: image_source
-                        fillMode: Image.PreserveAspectFit
-                        anchors.fill: parent
-                        //anchors.leftMargin: 200
-                        anchors.topMargin: 30
-                        anchors.bottomMargin:  30
-                 }
+                    source: image_source
+                    fillMode: Image.PreserveAspectFit
+                    anchors.fill: parent
+                    //anchors.leftMargin: 200
+                    anchors.topMargin: 30
+                    anchors.bottomMargin:  30
+                }
             }
 
             Timer {
                 interval: 1000; running: true; repeat: true
                 onTriggered: {
-                    var next = Logic.next();
-                    print(next)
-                    gridView.currentIndex = next;
+                    gridView.currentIndex = Logic.next();
+                }
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    if(gridView.currentItem.number === n1.number + n2.number) {
+                        print("HURRAY!");
+                    }
+                    else {
+                        gridView.currentItem.color = "red"
+                        gridView.currentItem.opacity = 0.3
+                    }
                 }
             }
         }
@@ -244,6 +256,7 @@ Item {
                     Image{
                         fillMode: Image.PreserveAspectFit
                         id: n1
+                        property int number: 0
                         anchors.fill:parent
                      }
 
@@ -272,6 +285,7 @@ Item {
                         anchors.fill:parent
                         fillMode: Image.PreserveAspectFit
                         id: n2
+                        property int number: 0
                      }
                 }
                 Rectangle {
@@ -352,7 +366,9 @@ Item {
        console.log(number2)
 
         n1.source=folder+number1+".png"
+        n1.number = number1
         n2.source=folder+number2+".png"
+        n2.number = number2
 
     }
 
@@ -365,10 +381,10 @@ Item {
          }while ((positionResult===positionWrong1) | (positionResult===positionWrong3) | (positionResult===positionWrong2) | (positionWrong1===positionWrong2) |(positionWrong1===positionWrong3) | (positionWrong3===positionWrong2))
 
 
-        imageModel.set(positionResult-1,{ "image_source":folder+result+".png"})
-        imageModel.set(positionWrong1-1,{ "image_source":folder+wrong1+".png"})
-        imageModel.set(positionWrong2-1,{ "image_source":folder+wrong2+".png"})
-        imageModel.set(positionWrong3-1,{ "image_source":folder+wrong3+".png"})
+        imageModel.set(positionResult-1,{ "image_source":folder+result+".png", "value":result})
+        imageModel.set(positionWrong1-1,{ "image_source":folder+wrong1+".png", "value":wrong1})
+        imageModel.set(positionWrong2-1,{ "image_source":folder+wrong2+".png", "value":wrong2})
+        imageModel.set(positionWrong3-1,{ "image_source":folder+wrong3+".png", "value":wrong3})
 
 
          //p1.source=imageModel.get(0).source
