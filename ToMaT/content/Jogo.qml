@@ -162,8 +162,10 @@ Item {
             Rectangle {
                 height: telaLetras.height/2
                 width: telaLetras.width/2
-                color: "blue"
-                opacity: 0.3
+                color: "transparent"
+                border.color: "red"
+                border.width: 20
+                opacity: 0.6
             }
         }
 
