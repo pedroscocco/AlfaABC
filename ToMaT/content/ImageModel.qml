@@ -7,14 +7,10 @@ ListModel{
         image_source:""
         value: 0
         rect_color:"transparent"
-
-
-    }
-    ListElement {
-
-        image_source:""
-        value: 0
-        rect_color:"transparent"
+        topMargin:0
+        leftMargin:0
+        bottomMargin:30
+        rightMargin:200
 
     }
     ListElement {
@@ -22,6 +18,10 @@ ListModel{
         image_source:""
         value: 0
         rect_color:"transparent"
+        topMargin:0
+        leftMargin:200
+        bottomMargin:30
+        rightMargin:0
 
     }
     ListElement {
@@ -29,6 +29,21 @@ ListModel{
         image_source:""
         value: 0
         rect_color:"transparent"
+        topMargin:30
+        leftMargin:0
+        bottomMargin:0
+        rightMargin:200
+
+    }
+    ListElement {
+
+        image_source:""
+        value: 0
+        rect_color:"transparent"
+        topMargin:30
+        leftMargin:200
+        bottomMargin:0
+        rightMargin:0
 
     }
 }

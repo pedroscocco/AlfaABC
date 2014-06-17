@@ -27,7 +27,7 @@ Item {
     property var tries;
     property var nextActivity ;
     property var actualActivity ;
-     property var folder ;
+    property var folder ;
 
     Rectangle {
         id: telaLetras
@@ -194,9 +194,12 @@ Item {
                     source: image_source
                     fillMode: Image.PreserveAspectFit
                     anchors.fill: parent
-                    //anchors.leftMargin: 200
-                    anchors.topMargin: 30
-                    anchors.bottomMargin:  30
+                    anchors.topMargin: topMargin
+                    anchors.leftMargin: leftMargin
+                    anchors.bottomMargin:  bottomMargin
+                    anchors.rightMargin:  rightMargin
+
+
                 }
             }
 
@@ -390,16 +393,13 @@ Item {
          }while ((positionResult===positionWrong1) | (positionResult===positionWrong3) | (positionResult===positionWrong2) | (positionWrong1===positionWrong2) |(positionWrong1===positionWrong3) | (positionWrong3===positionWrong2))
 
 
+
         imageModel.set(positionResult-1,{ "image_source":folder+result+".png", "value":result, "rect_color":"transparent"})
         imageModel.set(positionWrong1-1,{ "image_source":folder+wrong1+".png", "value":wrong1, "rect_color":"transparent"})
         imageModel.set(positionWrong2-1,{ "image_source":folder+wrong2+".png", "value":wrong2, "rect_color":"transparent"})
         imageModel.set(positionWrong3-1,{ "image_source":folder+wrong3+".png", "value":wrong3, "rect_color":"transparent"})
 
 
-         //p1.source=imageModel.get(0).source
-         //p2.source=imageModel.get(1).source
-         //p3.source=imageModel.get(2).source
-         //p4.source=imageModel.get(3).source
 
     }
 
