@@ -4,5 +4,14 @@
         <file>images/stock-photo-illustration-of-a-boy-sleeping-soundly-inside-his-room-133435442.jpg</file>
         <file>content/Jogo.qml</file>
         <file>content/mylogic.js</file>
+        <file>content/ImageModel.qml</file>
+        <file>images/Bola/1.png</file>
+        <file>images/Bola/2.png</file>
+        <file>images/Bola/3.png</file>
+        <file>images/Bola/4.png</file>
+        <file>images/Bola/5.png</file>
+        <file>images/Bola/6.png</file>
+        <file>images/Bola/7.png</file>
+        <file>images/Bola/8.png</file>
     </qresource>
 </RCC>

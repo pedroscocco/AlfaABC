@@ -10,6 +10,7 @@ var numberOfActivities;
 var change;
 var atividadeItem;
 var clearLetters;
+
 function mostrarPopup(object1, object2, object3, object4) {
     var source1=object1;
     var source2=object2;
@@ -143,4 +144,10 @@ function random(numPossibilidades){
 function incrementTries(){
     tries++;
 }
+
+function calcFeedback(){
+
+}
+
+
 
