@@ -154,7 +154,7 @@ Item {
                 id: jogar
                 width: parent.width/3
                 anchors.verticalCenter: parent.verticalCenter
-                anchors.right: parent.right
+                anchors.right: parent.left
                 fillMode: Image.PreserveAspectFit
                 source: src
                 property string src: "../images/PlayAgainButton.png"
@@ -210,7 +210,7 @@ Item {
                 id: sair
                 width: parent.width/3
                 anchors.verticalCenter: parent.verticalCenter
-                anchors.left: parent.left
+                anchors.left: parent.right
                 fillMode: Image.PreserveAspectFit
                 x: parent.width/2
                 source: "../images/QuitButton.png"
