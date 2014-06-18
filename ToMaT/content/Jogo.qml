@@ -28,24 +28,36 @@ Item {
     property var nextActivity ;
     property var actualActivity ;
     property var folder ;
+    property bool res: false
 
     Resultado {
         id: popupResultado
-        width: parent.width/2
-        height: parent.height/2
+        width: parent.width/1.3
+        height: parent.height/1.3
         anchors.centerIn: parent
         visible: false
         z:100
 
         onVisibleChanged: {
             if(visible) {
+                popupResultado.num1 = folder + number1 + ".png"
+                popupResultado.num2 = folder + number2 + ".png"
+                popupResultado.resp = folder + result + ".png"
                 if(timer.running) {
                     timer.stop()
+                    popupResultado.prepare(res)
                     popupResultado.out = false
                 }
             }
             else {
                 if(!timer.running) {
+                    if(popupResultado.retry) {
+                        repeatActivity()
+                    }
+                    else {
+                        toNextActivity()
+                    }
+
                     timer.start()
                     if(popupResultado.out) {
                         quarto.visible = false
@@ -259,6 +271,7 @@ Item {
             anchors.bottom: parent.bottom
             height: parent.height/2
             width: parent.width*0.4
+            y: parent.height/2
             color: "transparent"
             Image{
                 id: personagem

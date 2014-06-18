@@ -1,5 +1,6 @@
 import QtQuick 2.1
 import QtQuick.Layouts 1.1
+import QtQuick.Window 2.1
 import QtMultimedia 5.0
 
 Item {
@@ -7,6 +8,12 @@ Item {
     property bool sucesso
     property string bg: ""
     property bool out
+
+    property string num1
+    property string num2
+    property string resp
+
+    property bool retry: false
 
     function prepare(res) {
         if(res) {
@@ -18,15 +25,9 @@ Item {
             background.source = bg
         }
 
-        /*if(pontuation >= 0 && pontuation <= 4) {
-            if(pontuation < 3) {
-                telaResultado.state = "LOW"
-            }
-            else {
-                telaResultado.state = "HIGH"
-            }
-            background.source = "../images/Result"+pontuation+".jpg"
-        }*/
+        n1.source = num1
+        n2.source = num2
+        n3.source = resp
     }
 
     SoundEffect {
@@ -60,13 +61,101 @@ Item {
         ]
         Image {
             id: background
-            source: "../images/Result0.jpg"
+            source: bg
             anchors.fill: parent
+        }
+
+        Rectangle {
+            id: desafio
+            anchors.horizontalCenter: parent.horizontalCenter
+            anchors.bottomMargin: 0
+            height: parent.height/2
+            width: 4*parent.width/5
+            y: parent.height/6
+            gradient: Gradient {
+                     GradientStop { position: 0.0; color: "white" }
+                     GradientStop { position: 1.0; color: "#d7d7d7" }
+                 }
+            radius: 500
+            border.color: "#b7b7b7"
+            border.width: 1
+            Item {
+                anchors.fill: parent
+                anchors.margins: 10
+
+                Rectangle {
+
+                    anchors.left: parent.left
+                    height: parent.height
+                    width: parent.width*0.20
+                     color: "transparent"
+                    Image{
+                        fillMode: Image.PreserveAspectFit
+                        id: n1
+                        anchors.fill:parent
+                     }
+
+                }
+                Rectangle {
+                     anchors.left: parent.left
+                    anchors.leftMargin: parent.width*0.20
+                    height: parent.height
+                    width: parent.width*0.1
+                    color: "transparent"
+                    Text {
+                        id: mais
+                        anchors.centerIn: parent
+                        text: "+"
+                        font.bold: true
+                        font.pointSize: 50*(window.width/Screen.desktopAvailableWidth)
+                    }
+                }
+                Rectangle {
+                     anchors.left: parent.left
+                    anchors.leftMargin: parent.width*0.30
+                    height: parent.height
+                    width: parent.width*0.30
+                     color: "transparent"
+                    Image{
+                        anchors.fill:parent
+                        fillMode: Image.PreserveAspectFit
+                        id: n2
+                     }
+                }
+                Rectangle {
+                    anchors.left: parent.left
+                    anchors.leftMargin: (parent.width*0.60)
+                    height: parent.height
+                    width: parent.width*0.1
+                    color: "transparent"
+                    Text {
+                        id: igual
+                        anchors.centerIn: parent
+                        text: "="
+                        font.bold: true
+                        font.pointSize: 50*(window.width/Screen.desktopAvailableWidth)
+                    }
+                }
+
+                Rectangle {
+                    anchors.left: parent.left
+                    anchors.leftMargin: (parent.width*0.70)
+                    height: parent.height
+                    width: parent.width*0.30
+                    color: "transparent"
+                    Image{
+                        anchors.fill:parent
+                        fillMode: Image.PreserveAspectFit
+                        id: n3
+                     }
+                }
+            }
+
         }
 
         Item {
             id: opcoes
-            height: parent.height/2
+            height: parent.height/4
             width: parent.width
             anchors.bottom: parent.bottom
 
@@ -90,10 +179,10 @@ Item {
                         resultado.out = false
                         resultado.visible = false
                         if(telaResultado.state === 'LOW') {
-                            atividade.retry()
+                            retry = true
                         }
                         else if(telaResultado.state === 'HIGH') {
-                            atividade.next()
+                            retry = false
                         }
                     }
                 }
