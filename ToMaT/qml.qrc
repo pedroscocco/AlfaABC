@@ -15,5 +15,37 @@
         <file>images/Atividades/1/background.jpg</file>
         <file>images/Atividades/2/background.jpg</file>
         <file>images/personagem.png</file>
+        <file>content/TelaInicial.qml</file>
+        <file>images/PlayAgainButton.png</file>
+        <file>images/PlayAgainButtonClicked.png</file>
+        <file>images/PlayButton.png</file>
+        <file>images/PlayButtonClicked.png</file>
+        <file>images/PlayNextButton.png</file>
+        <file>images/PlayNextButtonClicked.png</file>
+        <file>images/Quit.png</file>
+        <file>images/QuitButton.png</file>
+        <file>images/QuitButtonClicked.png</file>
+        <file>images/StudyButton.png</file>
+        <file>images/StudyButtonClicked.png</file>
+        <file>images/StudyNextButton.png</file>
+        <file>images/StudyNextButtonClicked.png</file>
+        <file>images/LogoTelaInicial.png</file>
+        <file>images/BackgroundTelaInicial.jpg</file>
+        <file>images/sounds/ButtonSelect1.wav</file>
+        <file>images/sounds/ButtonSelect2.wav</file>
+        <file>images/sounds/CapturaLetra1Sine.wav</file>
+        <file>images/sounds/CapturaLetra1Square.wav</file>
+        <file>images/sounds/CapturaLetra2Sine.wav</file>
+        <file>images/sounds/CapturaLetra2Square.wav</file>
+        <file>images/sounds/CapturaLetra3Sine.wav</file>
+        <file>images/sounds/Erro1.wav</file>
+        <file>images/sounds/Erro2.wav</file>
+        <file>images/sounds/Erro3.wav</file>
+        <file>images/sounds/Jump1.wav</file>
+        <file>images/sounds/Jump2.wav</file>
+        <file>images/sounds/TrocaHeader1.wav</file>
+        <file>images/sounds/TrocaHeader2.wav</file>
+        <file>images/sounds/TrocaHeader3.wav</file>
+        <file>content/Resultado.qml</file>
     </qresource>
 </RCC>

@@ -15,12 +15,25 @@ Window {
     minimumWidth: 640
 
 
+    TelaInicial {
+        id: telaInicial
+        anchors.fill: parent
+        visible: true
+        onVisibleChanged: visibilidadeTelaInicial()
+
+        function visibilidadeTelaInicial() {
+            if (!telaInicial.visible) {
+                jogo.visible = true
+            }
+        }
+    }
+
 
     // Exemplo pra chamar quarto
     Jogo {
         id: jogo
         anchors.fill: parent
-        visible: true
+        visible: false
         onVisibleChanged: visibilidadeJogo()
 
         Component.onCompleted: {

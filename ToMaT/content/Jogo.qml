@@ -29,6 +29,16 @@ Item {
     property var actualActivity ;
     property var folder ;
 
+    Resultado {
+        id: popupResultado
+        width: parent.width/2
+        height: parent.height/2
+        anchors.centerIn: parent
+        visible: false
+        z:100
+    }
+
+
     Rectangle {
         id: telaLetras
         width: parent.width
@@ -423,6 +433,7 @@ Item {
        Logic.restart()
        timer.restart()
        backgroundJogo.source= folder+ "background.jpg"
+        popupResultado.visible = true
     }
 
 
