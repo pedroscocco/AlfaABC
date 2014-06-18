@@ -41,11 +41,15 @@ Item {
             if(visible) {
                 if(timer.running) {
                     timer.stop()
+                    popupResultado.out = false
                 }
             }
             else {
                 if(!timer.running) {
                     timer.start()
+                    if(popupResultado.out) {
+                        quarto.visible = false
+                    }
                 }
             }
         }
@@ -238,9 +242,13 @@ Item {
                     if(gridView.currentItem.number === n1.number + n2.number) {
                         print("HURRAY!");
                         toNextActivity();
+                        popupResultado.sucesso = true
+                        popupResultado.visible = true
                     }
                     else {
                         imageModel.get(gridView.currentIndex).rect_color = "red"
+                        popupResultado.sucesso = false
+                        popupResultado.visible = true
                     }
                 }
             }
@@ -376,6 +384,7 @@ Item {
         sortChallenge(folder)
         sortPosition(folder)
         backgroundJogo.source= folder+ "background.jpg"
+        popupResultado.bg = folder+ "background.jpg"
 
     }
 
@@ -444,7 +453,7 @@ Item {
        Logic.restart()
        timer.restart()
        backgroundJogo.source= folder+ "background.jpg"
-        popupResultado.visible = true
+        popupResultado.bg = folder+ "background.jpg"
     }
 
 

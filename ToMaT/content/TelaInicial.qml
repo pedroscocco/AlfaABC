@@ -42,30 +42,10 @@ Item {
             anchors.bottom: parent.bottom
 
             Image {
-                id: estudar
-                width: parent.width/3
-                anchors.verticalCenter: parent.verticalCenter
-                fillMode: Image.PreserveAspectFit
-                source: "../images/StudyButton.png"
-                MouseArea {
-                    anchors.fill: parent
-                    onPressed: {
-                        estudar.source = "../images/StudyButtonClicked.png"
-                        buttonClick.play()
-                    }
-                    onReleased: {
-                        menuInicial.visible = false
-                        estudar.source = "../images/StudyButton.png"
-                    }
-                }
-            }
-
-            Image {
                 id: jogar
                 source: "../images/PlayButton.png"
-                width: parent.width/3
+                width: parent.width/2
                 anchors.verticalCenter: parent.verticalCenter
-                x: parent.width/3
                 fillMode: Image.PreserveAspectFit
 
                 MouseArea {
@@ -85,9 +65,9 @@ Item {
             Image {
                 id: sair
                 source: "../images/QuitButton.png"
-                width: parent.width/3
+                width: parent.width/2
                 anchors.verticalCenter: parent.verticalCenter
-                x: 2*parent.width/3
+                x: parent.width/2
                 fillMode: Image.PreserveAspectFit
 
                 MouseArea {

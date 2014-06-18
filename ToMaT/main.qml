@@ -56,6 +56,7 @@ Window {
        else {
 
            jogo.state = "PARADO"
+           telaInicial.visible = true
        }
     }
 

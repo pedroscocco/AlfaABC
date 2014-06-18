@@ -5,13 +5,17 @@ import QtMultimedia 5.0
 Item {
     id: resultado
     property bool sucesso
+    property string bg: ""
+    property bool out
 
     function prepare(res) {
         if(res) {
             telaResultado.state = "HIGH"
+            background.source = bg
         }
         else {
             telaResultado.state = "LOW"
+            background.source = bg
         }
 
         /*if(pontuation >= 0 && pontuation <= 4) {
@@ -83,8 +87,8 @@ Item {
                     }
                     onReleased: {
                         jogar.source = jogar.src
+                        resultado.out = false
                         resultado.visible = false
-                        atividade.visible = true
                         if(telaResultado.state === 'LOW') {
                             atividade.retry()
                         }
@@ -111,6 +115,7 @@ Item {
                     }
                     onReleased: {
                         sair.source = "../images/QuitButton.png"
+                        resultado.out = true
                         resultado.visible = false
                     }
                 }
