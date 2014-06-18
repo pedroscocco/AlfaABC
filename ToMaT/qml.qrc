@@ -47,5 +47,23 @@
         <file>images/sounds/TrocaHeader2.wav</file>
         <file>images/sounds/TrocaHeader3.wav</file>
         <file>content/Resultado.qml</file>
+        <file>images/Atividades/2/9.png</file>
+        <file>images/Atividades/1/9.png</file>
+        <file>images/Atividades/2/baloes.png</file>
+        <file>images/Atividades/2/ResultOk.jpg</file>
+        <file>images/Atividades/2/ResultWrong.jpg</file>
+        <file>images/Atividades/3/1.png</file>
+        <file>images/Atividades/3/2.png</file>
+        <file>images/Atividades/3/3.png</file>
+        <file>images/Atividades/3/4.png</file>
+        <file>images/Atividades/3/5.png</file>
+        <file>images/Atividades/3/6.png</file>
+        <file>images/Atividades/3/7.png</file>
+        <file>images/Atividades/3/8.png</file>
+        <file>images/Atividades/3/9.png</file>
+        <file>images/Atividades/3/background.jpg</file>
+        <file>images/Atividades/3/ResultOk.jpg</file>
+        <file>images/Atividades/3/ResultWrong.jpg</file>
+        <file>images/Atividades/3/Sorvete.png</file>
     </qresource>
 </RCC>
