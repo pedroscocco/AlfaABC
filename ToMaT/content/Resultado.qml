@@ -16,6 +16,8 @@ Item {
     property bool retry: false
 
     function prepare(res) {
+
+
         if(res) {
             telaResultado.state = "HIGH"
             background.source = bg
@@ -23,6 +25,7 @@ Item {
         else {
             telaResultado.state = "LOW"
             background.source = bg
+
         }
 
         n1.source = num1
@@ -35,42 +38,30 @@ Item {
         source: "../images/sounds/ButtonSelect1.wav"
         //source: "resources/sounds/ButtonSelect2.wav"
     }
+    Rectangle {
+        anchors.fill: parent
+        color: Qt.rgba(0,0,0,0.8)
 
     Rectangle {
         id: telaResultado
-        anchors.fill: parent
+        anchors.centerIn: parent
+        width: parent.width/1.3
+        height: parent.height/1.3
 
-        states: [
-            State {
-                name: "LOW"
-                PropertyChanges {
-                    target: jogar
-                    src: "../images/PlayAgainButton.png"
-                    srclkd: "../images/PlayAgainButtonClicked.png"
-                }
-            },
-            State {
-                name: "HIGH"
-                PropertyChanges {
-                    target: jogar
-                    src: "../images/PlayNextButton.png"
-                    srclkd: "../images/PlayNextButtonClicked.png"
-                }
-            }
-
-        ]
         Image {
             id: background
             source: bg
             anchors.fill: parent
+
         }
 
         Rectangle {
             id: desafio
+            visible: sucesso
             anchors.horizontalCenter: parent.horizontalCenter
             anchors.bottomMargin: 0
             height: parent.height/2
-            width: 4*parent.width/5
+            width: parent.width/3
             y: parent.height/6
             gradient: Gradient {
                      GradientStop { position: 0.0; color: "white" }
@@ -161,12 +152,13 @@ Item {
 
             Image {
                 id: jogar
-                width: parent.width/2
+                width: parent.width/3
                 anchors.verticalCenter: parent.verticalCenter
+                anchors.right: parent.right
                 fillMode: Image.PreserveAspectFit
                 source: src
                 property string src: "../images/PlayAgainButton.png"
-                property string srclkd: "../images/PlayAgainButtonClicked"
+                property string srclkd: "../images/PlayAgainButtonClicked.png"
 
                 MouseArea {
                     anchors.fill: parent
@@ -177,21 +169,48 @@ Item {
                     onReleased: {
                         jogar.source = jogar.src
                         resultado.out = false
+                        if(sucesso){
+                            jogo.repeatActivity()
+                        }
                         resultado.visible = false
-                        if(telaResultado.state === 'LOW') {
-                            retry = true
-                        }
-                        else if(telaResultado.state === 'HIGH') {
-                            retry = false
-                        }
+
+                    }
+                }
+            }
+
+            Image {
+                id: next
+                width: parent.width/3
+                anchors.verticalCenter: parent.verticalCenter
+                anchors.horizontalCenter: parent.horizontalCenter
+                fillMode: Image.PreserveAspectFit
+                source: src
+                visible: sucesso
+                property string src: "../images/PlayNextButton.png"
+                property string srclkd: "../images/PlayNextButtonClicked.png"
+
+                MouseArea {
+                    anchors.fill: parent
+                    onPressed: {
+                        jogar.source = jogar.srclkd
+                        buttonClick.play()
+                    }
+                    onReleased: {
+                        jogar.source = jogar.src
+                        resultado.out = false
+                        jogo.toNextActivity()
+                        resultado.visible = false
+
+
                     }
                 }
             }
 
             Image {
                 id: sair
-                width: parent.width/2
+                width: parent.width/3
                 anchors.verticalCenter: parent.verticalCenter
+                anchors.left: parent.left
                 fillMode: Image.PreserveAspectFit
                 x: parent.width/2
                 source: "../images/QuitButton.png"
@@ -211,6 +230,6 @@ Item {
             }
 
         }
-    }
+    }}
 
 }

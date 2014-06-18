@@ -32,9 +32,8 @@ Item {
 
     Resultado {
         id: popupResultado
-        width: parent.width/1.3
-        height: parent.height/1.3
         anchors.centerIn: parent
+        anchors.fill: parent
         visible: false
         z:100
 
@@ -51,12 +50,6 @@ Item {
             }
             else {
                 if(!timer.running) {
-                    if(popupResultado.retry) {
-                        repeatActivity()
-                    }
-                    else {
-                        toNextActivity()
-                    }
 
                     timer.start()
                     if(popupResultado.out) {
@@ -252,14 +245,17 @@ Item {
                 anchors.fill: parent
                 onClicked: {
                     if(gridView.currentItem.number === n1.number + n2.number) {
-
+                        popupResultado.bg = folder+ "ResultOk.jpg"
                         popupResultado.sucesso = true
                         popupResultado.visible = true
+
                     }
                     else {
                         imageModel.get(gridView.currentIndex).rect_color = "red"
+                        popupResultado.bg = folder+ "ResultWrong.jpg"
                         popupResultado.sucesso = false
                         popupResultado.visible = true
+
                     }
                 }
             }
@@ -390,13 +386,13 @@ Item {
         positionWrong2=0;
         positionWrong3=0;
         tries=0;
-        actualActivity=0;
+        actualActivity=1;
         nextActivity=0;
         folder="../images/Atividades/"+1+"/";
         sortChallenge(folder)
         sortPosition(folder)
         backgroundJogo.source= folder+ "background.jpg"
-        popupResultado.bg = folder+ "background.jpg"
+
 
     }
 
@@ -473,7 +469,6 @@ Item {
     }
 
     function repeatActivity(){
-
        folder="../images/Atividades/"+ actualActivity+"/"
        sortChallenge(folder)
        sortPosition(folder)
