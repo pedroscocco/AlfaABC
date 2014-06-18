@@ -73,5 +73,7 @@
         <file>images/Atividades/2/6.png</file>
         <file>images/Atividades/2/7.png</file>
         <file>images/Atividades/2/8.png</file>
+        <file>images/Atividades/1/ResultOk.jpg</file>
+        <file>images/Atividades/1/ResultWrong.jpg</file>
     </qresource>
 </RCC>

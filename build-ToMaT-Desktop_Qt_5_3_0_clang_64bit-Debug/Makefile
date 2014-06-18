@@ -508,52 +508,80 @@ compiler_rcc_clean:
 	-$(DEL_FILE) qrc_qml.cpp
 qrc_qml.cpp: ../ToMaT/qml.qrc \
 		../ToMaT/main.qml \
-		../ToMaT/images/Quit.png \
+		../ToMaT/content/mylogic.js \
+		../ToMaT/content/TelaInicial.qml \
+		../ToMaT/content/Resultado.qml \
+		../ToMaT/content/ImageModel.qml \
+		../ToMaT/content/Jogo.qml \
+		../ToMaT/images/LogoTelaInicial.png \
+		../ToMaT/images/PlayAgainButtonClicked.png \
+		../ToMaT/images/StudyButton.png \
+		../ToMaT/images/StudyNextButtonClicked.png \
+		../ToMaT/images/PlayButtonClicked.png \
+		../ToMaT/images/StudyNextButton.png \
 		../ToMaT/images/PlayNextButtonClicked.png \
 		../ToMaT/images/BackgroundTelaInicial.jpg \
-		../ToMaT/images/PlayAgainButton.png \
-		../ToMaT/images/StudyButton.png \
-		../ToMaT/images/QuitButton.png \
-		../ToMaT/images/PlayButtonClicked.png \
-		../ToMaT/images/LogoTelaInicial.png \
-		../ToMaT/images/PlayButton.png \
-		../ToMaT/images/StudyButtonClicked.png \
-		../ToMaT/images/PlayAgainButtonClicked.png \
-		../ToMaT/images/personagem.png \
-		../ToMaT/images/StudyNextButtonClicked.png \
 		../ToMaT/images/QuitButtonClicked.png \
-		../ToMaT/images/StudyNextButton.png \
+		../ToMaT/images/Quit.png \
+		../ToMaT/images/PlayButton.png \
+		../ToMaT/images/QuitButton.png \
+		../ToMaT/images/PlayAgainButton.png \
 		../ToMaT/images/PlayNextButton.png \
-		../ToMaT/images/Atividades/2/background.jpg \
-		../ToMaT/images/Atividades/1/3.png \
-		../ToMaT/images/Atividades/1/7.png \
+		../ToMaT/images/StudyButtonClicked.png \
+		../ToMaT/images/personagem.png \
+		../ToMaT/images/sounds/ButtonSelect1.wav \
+		../ToMaT/images/sounds/Jump2.wav \
+		../ToMaT/images/sounds/CapturaLetra2Sine.wav \
+		../ToMaT/images/sounds/Erro3.wav \
+		../ToMaT/images/sounds/Jump1.wav \
+		../ToMaT/images/sounds/TrocaHeader3.wav \
+		../ToMaT/images/sounds/CapturaLetra3Sine.wav \
+		../ToMaT/images/sounds/Erro2.wav \
+		../ToMaT/images/sounds/TrocaHeader2.wav \
+		../ToMaT/images/sounds/CapturaLetra2Square.wav \
+		../ToMaT/images/sounds/Erro1.wav \
+		../ToMaT/images/sounds/ButtonSelect2.wav \
+		../ToMaT/images/sounds/CapturaLetra1Square.wav \
+		../ToMaT/images/sounds/TrocaHeader1.wav \
+		../ToMaT/images/sounds/CapturaLetra1Sine.wav \
 		../ToMaT/images/Atividades/1/2.png \
 		../ToMaT/images/Atividades/1/6.png \
 		../ToMaT/images/Atividades/1/1.png \
 		../ToMaT/images/Atividades/1/5.png \
+		../ToMaT/images/Atividades/1/9.png \
+		../ToMaT/images/Atividades/1/ResultWrong.jpg \
 		../ToMaT/images/Atividades/1/4.png \
 		../ToMaT/images/Atividades/1/8.png \
 		../ToMaT/images/Atividades/1/background.jpg \
-		../ToMaT/images/sounds/Erro3.wav \
-		../ToMaT/images/sounds/Jump1.wav \
-		../ToMaT/images/sounds/CapturaLetra1Sine.wav \
-		../ToMaT/images/sounds/CapturaLetra2Square.wav \
-		../ToMaT/images/sounds/Erro2.wav \
-		../ToMaT/images/sounds/CapturaLetra1Square.wav \
-		../ToMaT/images/sounds/ButtonSelect2.wav \
-		../ToMaT/images/sounds/TrocaHeader3.wav \
-		../ToMaT/images/sounds/Erro1.wav \
-		../ToMaT/images/sounds/CapturaLetra2Sine.wav \
-		../ToMaT/images/sounds/ButtonSelect1.wav \
-		../ToMaT/images/sounds/TrocaHeader2.wav \
-		../ToMaT/images/sounds/CapturaLetra3Sine.wav \
-		../ToMaT/images/sounds/Jump2.wav \
-		../ToMaT/images/sounds/TrocaHeader1.wav \
-		../ToMaT/content/mylogic.js \
-		../ToMaT/content/Jogo.qml \
-		../ToMaT/content/TelaInicial.qml \
-		../ToMaT/content/Resultado.qml \
-		../ToMaT/content/ImageModel.qml
+		../ToMaT/images/Atividades/1/3.png \
+		../ToMaT/images/Atividades/1/ResultOk.jpg \
+		../ToMaT/images/Atividades/1/7.png \
+		../ToMaT/images/Atividades/3/2.png \
+		../ToMaT/images/Atividades/3/Sorvete.png \
+		../ToMaT/images/Atividades/3/6.png \
+		../ToMaT/images/Atividades/3/1.png \
+		../ToMaT/images/Atividades/3/5.png \
+		../ToMaT/images/Atividades/3/9.png \
+		../ToMaT/images/Atividades/3/ResultWrong.jpg \
+		../ToMaT/images/Atividades/3/4.png \
+		../ToMaT/images/Atividades/3/8.png \
+		../ToMaT/images/Atividades/3/background.jpg \
+		../ToMaT/images/Atividades/3/3.png \
+		../ToMaT/images/Atividades/3/ResultOk.jpg \
+		../ToMaT/images/Atividades/3/7.png \
+		../ToMaT/images/Atividades/2/2.png \
+		../ToMaT/images/Atividades/2/6.png \
+		../ToMaT/images/Atividades/2/baloes.png \
+		../ToMaT/images/Atividades/2/1.png \
+		../ToMaT/images/Atividades/2/5.png \
+		../ToMaT/images/Atividades/2/9.png \
+		../ToMaT/images/Atividades/2/ResultWrong.jpg \
+		../ToMaT/images/Atividades/2/4.png \
+		../ToMaT/images/Atividades/2/background.jpg \
+		../ToMaT/images/Atividades/2/8.png \
+		../ToMaT/images/Atividades/2/ResultOk.jpg \
+		../ToMaT/images/Atividades/2/3.png \
+		../ToMaT/images/Atividades/2/7.png
 	/Users/BetaKiller/Qt5.3.0/5.3/clang_64/bin/rcc -name qml ../ToMaT/qml.qrc -o qrc_qml.cpp
 
 compiler_moc_header_make_all:
