@@ -240,8 +240,7 @@ Item {
                 anchors.fill: parent
                 onClicked: {
                     if(gridView.currentItem.number === n1.number + n2.number) {
-                        print("HURRAY!");
-                        toNextActivity();
+
                         popupResultado.sucesso = true
                         popupResultado.visible = true
                     }
@@ -446,7 +445,19 @@ Item {
 
     function toNextActivity(){
        nextActivity = actualActivity++;
-       folder="../images/Atividades/"+1+"/"
+       folder="../images/Atividades/"+nextActivity+"/"
+       sortChallenge(folder)
+       sortPosition(folder)
+       gridView.currentIndex = 0
+       Logic.restart()
+       timer.restart()
+       backgroundJogo.source= folder+ "background.jpg"
+       popupResultado.bg = folder+ "background.jpg"
+    }
+
+    function repeatActivity(){
+
+       folder="../images/Atividades/"+ actualActivity+"/"
        sortChallenge(folder)
        sortPosition(folder)
        gridView.currentIndex = 0
