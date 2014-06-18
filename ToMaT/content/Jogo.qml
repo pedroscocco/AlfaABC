@@ -453,10 +453,13 @@ Item {
     }
 
     function toNextActivity(){
-       nextActivity = actualActivity++;
+
+       nextActivity = actualActivity+1;
         if(nextActivity===4){
             nextActivity=1
         }
+        actualActivity=nextActivity
+
 
        folder="../images/Atividades/"+nextActivity+"/"
        sortChallenge(folder)
