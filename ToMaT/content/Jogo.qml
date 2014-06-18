@@ -36,6 +36,19 @@ Item {
         anchors.centerIn: parent
         visible: false
         z:100
+
+        onVisibleChanged: {
+            if(visible) {
+                if(timer.running) {
+                    timer.stop()
+                }
+            }
+            else {
+                if(!timer.running) {
+                    timer.start()
+                }
+            }
+        }
     }
 
 
@@ -208,8 +221,6 @@ Item {
                     anchors.leftMargin: leftMargin
                     anchors.bottomMargin:  bottomMargin
                     anchors.rightMargin:  rightMargin
-
-
                 }
             }
 

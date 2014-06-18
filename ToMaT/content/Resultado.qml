@@ -1,5 +1,6 @@
 import QtQuick 2.1
 import QtQuick.Layouts 1.1
+import QtMultimedia 5.0
 
 Item {
     id: resultado
@@ -22,6 +23,12 @@ Item {
             }
             background.source = "../images/Result"+pontuation+".jpg"
         }*/
+    }
+
+    SoundEffect {
+        id: buttonClick
+        source: "../images/sounds/ButtonSelect1.wav"
+        //source: "resources/sounds/ButtonSelect2.wav"
     }
 
     Rectangle {
@@ -53,31 +60,18 @@ Item {
             anchors.fill: parent
         }
 
-        RowLayout {
-        id: opcoes
-        Layout.alignment: (Qt.AlignHCenter | Qt.AlignVCenter)
-        anchors.bottom: parent.bottom
-
-            Image {
-                id: estudar
-                source: "../images/StudyButton.png"
-                Layout.alignment: (Qt.AlignHCenter | Qt.AlignVCenter)
-                MouseArea {
-                    anchors.fill: parent
-                    onPressed: {
-                        estudar.source = "../images/StudyButtonClicked.png"
-                        buttonClick.play()
-                    }
-                    onReleased: {
-                        estudar.source = "../images/StudyButton.png"
-                    }
-                }
-            }
+        Item {
+            id: opcoes
+            height: parent.height/2
+            width: parent.width
+            anchors.bottom: parent.bottom
 
             Image {
                 id: jogar
+                width: parent.width/2
+                anchors.verticalCenter: parent.verticalCenter
+                fillMode: Image.PreserveAspectFit
                 source: src
-                Layout.alignment: (Qt.AlignHCenter | Qt.AlignVCenter)
                 property string src: "../images/PlayAgainButton.png"
                 property string srclkd: "../images/PlayAgainButtonClicked"
 
@@ -103,8 +97,11 @@ Item {
 
             Image {
                 id: sair
+                width: parent.width/2
+                anchors.verticalCenter: parent.verticalCenter
+                fillMode: Image.PreserveAspectFit
+                x: parent.width/2
                 source: "../images/QuitButton.png"
-                Layout.alignment: (Qt.AlignHCenter | Qt.AlignVCenter)
 
                 MouseArea {
                     anchors.fill: parent
@@ -114,11 +111,11 @@ Item {
                     }
                     onReleased: {
                         sair.source = "../images/QuitButton.png"
-                        menuInicial.visible = true
                         resultado.visible = false
                     }
                 }
             }
+
         }
     }
 
